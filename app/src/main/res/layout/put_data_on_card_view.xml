@@ -14,14 +14,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="30dp"
-        android:text="Aproximate to nfc device to scan" />
+        android:text="Aproximate card to transfer information" />
 
     <Button
-        android:id="@+id/scanButton"
+        android:id="@+id/transferButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Scan"
+        android:text="Transfer"
         android:textColor="@android:color/white" />
 
 </LinearLayout>
