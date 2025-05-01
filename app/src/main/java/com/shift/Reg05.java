@@ -1,4 +1,4 @@
-package com.example.shift;
+package com.sshift;
 
 import android.content.Intent;
 import android.os.Bundle;
