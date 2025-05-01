@@ -14,21 +14,38 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="30dp"
-        android:text="Enter your birthdate" />
+        android:text="Enter your birthdate"
+        android:gravity="center"/>
 
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-
-    <Button
-        android:id="@+id/next"
+    <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Next"
-        android:textColor="@android:color/white" />
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Back"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Next"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </LinearLayout>

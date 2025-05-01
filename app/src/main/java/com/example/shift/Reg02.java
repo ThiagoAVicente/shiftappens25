@@ -24,9 +24,15 @@ public class Reg02 extends AppCompatActivity {
         });
 
         Button nextActivityButton = findViewById(R.id.next);
+        Button goBackButton = findViewById(R.id.back);
 
         nextActivityButton.setOnClickListener(v -> {
             Intent intent = new Intent(Reg02.this, Reg03.class);
+            startActivity(intent);
+        });
+
+        goBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Reg02.this, Reg01.class);
             startActivity(intent);
         });
 

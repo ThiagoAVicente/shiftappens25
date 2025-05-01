@@ -3,6 +3,9 @@ package com.example.shift;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +26,23 @@ public class Reg04 extends AppCompatActivity {
             return insets;
         });
 
+        LinearLayout mainLayout = findViewById(R.id.main);
         Button nextActivityButton = findViewById(R.id.next);
+        Button goBackButton = findViewById(R.id.back);
+        Button addAllergieButton = findViewById(R.id.add);
 
         nextActivityButton.setOnClickListener(v -> {
             Intent intent = new Intent(Reg04.this, Reg05.class);
             startActivity(intent);
+        });
+
+        goBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Reg04.this, Reg03.class);
+            startActivity(intent);
+        });
+
+        addAllergieButton.setOnClickListener(v -> {
+            mainLayout.addView(new EditText(this));
         });
     }
 }

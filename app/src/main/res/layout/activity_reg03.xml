@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:textSize="30dp"
-        android:text="Enter your height and weight" />
+        android:text="Enter your height and weight"
+        android:gravity="center"/>
 
     <EditText
         android:id="@+id/height"
@@ -34,12 +35,27 @@
         android:hint="weight"
         android:inputType="numberDecimal" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="Next"
-        android:textColor="@android:color/white" />
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Back"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Next"
+            android:layout_marginLeft="20dp"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
 </LinearLayout>
