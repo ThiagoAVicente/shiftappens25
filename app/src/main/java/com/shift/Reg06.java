@@ -10,7 +10,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.shift.R;
+import com.shift.R;
 
 public class Reg06 extends AppCompatActivity {
 
@@ -30,6 +30,13 @@ public class Reg06 extends AppCompatActivity {
 
         nextActivityButton.setOnClickListener(v -> {
             Intent intent = new Intent(Reg06.this, Reg06.class);
+            startActivity(intent);
+        });
+
+
+        goBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Reg06.this, Reg05.class);
+            startActivity(intent);
         });
     }
 }
