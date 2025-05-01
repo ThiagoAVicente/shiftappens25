@@ -28,9 +28,6 @@
             android:name=".Reg02"
             android:exported="false" />
         <activity
-            android:name=".Reg2"
-            android:exported="false" />
-        <activity
             android:name=".Reg01"
             android:exported="true">
             <intent-filter>

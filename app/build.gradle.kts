@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.shift"
+    namespace = "com.shift"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.shift"
+        applicationId = "com.shift"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

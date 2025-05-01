@@ -1,4 +1,4 @@
-package com.example.shift;
+package com.shift;
 
 import android.os.Bundle;
 import android.widget.Button;
