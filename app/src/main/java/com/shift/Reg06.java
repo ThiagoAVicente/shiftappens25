@@ -1,8 +1,10 @@
 package com.shift;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 
 public class Reg06 extends AppCompatActivity {
+
+    private String ccNumber;
+    private String snsNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +29,32 @@ public class Reg06 extends AppCompatActivity {
             return insets;
         });
 
+
+        SharedPreferences prefs = getSharedPreferences("preferences", MODE_PRIVATE);
+        ccNumber = prefs.getString("cc", "");
+        snsNumber = prefs.getString("sns", "");
+
+
+        EditText cc = findViewById(R.id.cc);
+        EditText sns = findViewById(R.id.sns);
         Button nextActivityButton = findViewById(R.id.next);
         Button goBackButton = findViewById(R.id.back);
 
+        cc.setText(ccNumber);
+        sns.setText(snsNumber);
+
         nextActivityButton.setOnClickListener(v -> {
+
+            ccNumber = cc.getText().toString();
+            snsNumber = sns.getText().toString();
+
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("cc", ccNumber);
+            editor.putString("sns", snsNumber);
+            editor.apply();
+
             Intent intent = new Intent(Reg06.this, Reg06.class);
+            startActivity(intent);
         });
     }
 }
