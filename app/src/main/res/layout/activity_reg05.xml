@@ -25,28 +25,52 @@
         android:layout_margin="16dp">
 
         <RadioButton
-            android:id="@+id/blood_O"
+            android:id="@+id/blood_O_pos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="O" />
+            android:text="O+" />
 
         <RadioButton
-            android:id="@+id/blood_A"
+            android:id="@+id/blood_O_neg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="A" />
+            android:text="O-" />
 
         <RadioButton
-            android:id="@+id/blood_B"
+            android:id="@+id/blood_A_pos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="B" />
+            android:text="A+" />
 
         <RadioButton
-            android:id="@+id/blood_AB"
+            android:id="@+id/blood_A_neg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="AB" />
+            android:text="A-" />
+
+        <RadioButton
+            android:id="@+id/blood_B_pos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="B+" />
+
+        <RadioButton
+            android:id="@+id/blood_B_neg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="B-" />
+
+        <RadioButton
+            android:id="@+id/blood_AB_pos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AB+" />
+
+        <RadioButton
+            android:id="@+id/blood_AB_neg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AB-" />
     </RadioGroup>
 
     <LinearLayout

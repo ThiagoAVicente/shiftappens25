@@ -53,7 +53,12 @@ public class Reg06 extends AppCompatActivity {
             editor.putString("sns", snsNumber);
             editor.apply();
 
-            Intent intent = new Intent(Reg06.this, Reg06.class);
+            Intent intent = new Intent(Reg06.this, Reg07.class);
+            startActivity(intent);
+        });
+
+        goBackButton.setOnClickListener(v -> {
+            Intent intent = new Intent(Reg06.this, Reg05.class);
             startActivity(intent);
         });
     }
