@@ -48,6 +48,18 @@ public class Reg06 extends AppCompatActivity {
             ccNumber = cc.getText().toString();
             snsNumber = sns.getText().toString();
 
+            if (!ccNumber.matches("\\d{8}")) {
+                cc.setError("cc number must be exactly 8 digits");
+                cc.requestFocus();
+                return;
+            }
+
+            if (!snsNumber.matches("\\d{9}")) {
+                sns.setError("sns number must be exactly 9 digits");
+                sns.requestFocus();
+                return;
+            }
+
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("cc", ccNumber);
             editor.putString("sns", snsNumber);
