@@ -39,6 +39,11 @@ public class MainMenu extends AppCompatActivity {
             startActivity(intent);
         });
 
+        saveToCardButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainMenu.this, PutData.class);
+            startActivity(intent);
+        });
+
         optionsButton.setOnClickListener(v -> {
             Intent intent = new Intent(MainMenu.this, Options.class);
             startActivity(intent);
