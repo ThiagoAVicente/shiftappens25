@@ -61,19 +61,18 @@ public class Reg04 extends AppCompatActivity {
         sb = new StringBuilder();
 
         nextActivityButton.setOnClickListener(v -> {
+
             int nmrFilhos = allergiesContainer.getChildCount();
 
-            for (int i = 1; i < nmrFilhos; i++) {
-                LinearLayout rowLayout = (LinearLayout) allergiesContainer.getChildAt(i);
-                TextView viewText = (TextView) rowLayout.getChildAt(0);
+            for(int i = 1; i < nmrFilhos ; i++){
+                TextView viewText = (TextView) allergiesContainer.getChildAt(i);
                 String alergia = viewText.getText().toString();
-                sb.append(alergia).append(";");
+                sb.append(alergia);
+                sb.append(";");
             }
-
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
-
             allergies = sb.toString();
 
             SharedPreferences.Editor editor = prefs.edit();
@@ -83,7 +82,6 @@ public class Reg04 extends AppCompatActivity {
             Intent intent = new Intent(Reg04.this, Reg05.class);
             startActivity(intent);
         });
-
 
         goBackButton.setOnClickListener(v -> {
             Intent intent = new Intent(Reg04.this, Reg03.class);
