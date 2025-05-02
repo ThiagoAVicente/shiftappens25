@@ -18,36 +18,30 @@
         android:gravity="center"/>
 
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="509dp"
-        android:layout_margin="16dp">
+    <LinearLayout
+        android:id="@+id/containerPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:gravity="center">
 
-        <RadioButton
-            android:id="@+id/blood_O"
+        <NumberPicker
+            android:id="@+id/bloodPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:solidColor="#38a5c7"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"/>
+
+        <NumberPicker
+            android:id="@+id/plusMinusPicker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="O" />
-
-        <RadioButton
-            android:id="@+id/blood_A"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="A" />
-
-        <RadioButton
-            android:id="@+id/blood_B"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="B" />
-
-        <RadioButton
-            android:id="@+id/blood_AB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="AB" />
-    </RadioGroup>
+            android:solidColor="#38a5c7"
+            android:layout_gravity="center" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
