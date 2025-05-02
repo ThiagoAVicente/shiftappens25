@@ -42,6 +42,13 @@ public class Reg04 extends AppCompatActivity {
         nextActivityButton.setOnClickListener(v -> {
             Intent intent = new Intent(Reg04.this, Reg05.class);
             startActivity(intent);
+
+            int nmrFilhos = allergiesContainer.getChildCount();
+
+            for(int i = 1; i < nmrFilhos ; i++){
+                TextView viewText = (TextView) allergiesContainer.getChildAt(i);
+                String alergia = viewText.getText().toString();
+            }
         });
 
         goBackButton.setOnClickListener(v -> {
@@ -53,9 +60,9 @@ public class Reg04 extends AppCompatActivity {
             String newAllergie = textAllergie.getText().toString();
             TextView newText = new TextView(this);
             newText.setText(newAllergie);
-            newText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+            newText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
             newText.setTextColor(Color.BLACK);
-            //newText.setGravity(Gravity.START);
+            newText.setGravity(Gravity.START);
 
             allergiesContainer.addView(newText);
         });
