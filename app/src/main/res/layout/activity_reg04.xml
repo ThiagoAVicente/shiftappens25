@@ -31,14 +31,15 @@
             android:hint="allergie"
             android:inputType="text"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Add more"
         android:layout_marginLeft="100dp"
         android:layout_marginBottom="50dp"
+        android:text="Add more"
         android:textColor="@android:color/white" />
 
     <LinearLayout
