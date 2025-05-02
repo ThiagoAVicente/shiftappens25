@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.widget.Button;
@@ -48,14 +49,45 @@ public class Reg04 extends AppCompatActivity {
 
         String[] allergiesArray = allergies.split(";");
 
-        for (String a : allergiesArray) {
-            TextView newText = new TextView(this);
-            newText.setText(a);
-            newText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
-            newText.setTextColor(Color.WHITE);
-            newText.setGravity(Gravity.CENTER);
 
-            allergiesContainer.addView(newText);
+        if(allergies.length() > 0){
+            for (String allergie : allergiesArray) {
+                LinearLayout rowLayout = new LinearLayout(this);
+                rowLayout.setOrientation(LinearLayout.HORIZONTAL);
+                rowLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT));
+                rowLayout.setPadding(16, 16, 16, 16);
+                rowLayout.setGravity(Gravity.CENTER);
+
+                TextView allergyText = new TextView(this);
+                allergyText.setText(allergie);
+                allergyText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+                allergyText.setTextColor(Color.BLACK);
+                allergyText.setSingleLine(false);
+                allergyText.setMaxLines(5);
+                allergyText.setEllipsize(null);
+                allergyText.setGravity(Gravity.CENTER);
+
+                LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                        0, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
+                allergyText.setLayoutParams(textParams);
+
+                Button deleteButton = new Button(this,  null, com.google.android.material.R.attr.borderlessButtonStyle);
+                deleteButton.setText("X");
+                deleteButton.setTextColor(Color.RED);
+                deleteButton.setOnClickListener(delView -> {
+                    allergiesContainer.removeView(rowLayout);
+                });
+
+                rowLayout.addView(allergyText);
+                rowLayout.addView(deleteButton);
+
+                allergiesContainer.addView(rowLayout);
+
+                textAllergie.setText("");
+            }
+
         }
 
         sb = new StringBuilder();
@@ -64,17 +96,26 @@ public class Reg04 extends AppCompatActivity {
 
             int nmrFilhos = allergiesContainer.getChildCount();
 
-            for(int i = 1; i < nmrFilhos ; i++){
-                TextView viewText = (TextView) allergiesContainer.getChildAt(i);
-                String alergia = viewText.getText().toString();
-                sb.append(alergia);
-                sb.append(";");
+            for(int i = 0; i < nmrFilhos ; i++){
+                if(allergiesContainer.getChildAt(i) instanceof LinearLayout) {
+                    LinearLayout viewText = (LinearLayout) allergiesContainer.getChildAt(i);
+                    TextView allergiaTextView = (TextView) viewText.getChildAt(0);
+                    String alergia = allergiaTextView.getText().toString();
+                    sb.append(alergia);
+                    sb.append(";");
+                } else if (allergiesContainer.getChildAt(i) instanceof LinearLayout) {
+                    TextView allergiaTextView = (TextView) allergiesContainer.getChildAt(0);
+                    String alergia = allergiaTextView.getText().toString();
+                    sb.append(alergia);
+                    sb.append(";");
+                }
             }
             if (sb.length() > 0) {
                 sb.deleteCharAt(sb.length() - 1);
             }
             allergies = sb.toString();
 
+            Log.d("ALERGIASAFTERSB", allergies);
             SharedPreferences.Editor editor = prefs.edit();
             editor.putString("allergies", allergies);
             editor.apply();
@@ -103,7 +144,7 @@ public class Reg04 extends AppCompatActivity {
                 TextView allergyText = new TextView(this);
                 allergyText.setText(newAllergie);
                 allergyText.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
-                allergyText.setTextColor(Color.WHITE);
+                allergyText.setTextColor(Color.BLACK);
                 allergyText.setSingleLine(false);
                 allergyText.setMaxLines(5);
                 allergyText.setEllipsize(null);
