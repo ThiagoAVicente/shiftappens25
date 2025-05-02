@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.RadioGroup;
 
 import androidx.activity.EdgeToEdge;
@@ -28,20 +29,34 @@ public class Reg05 extends AppCompatActivity {
         });
 
         SharedPreferences prefs = getSharedPreferences("preferences", MODE_PRIVATE);
-        radioID = prefs.getInt("radioID", -1);
 
-        RadioGroup radioGroup = findViewById(R.id.radioGroup);
+        NumberPicker bloodPicker = findViewById(R.id.bloodPicker);
+        NumberPicker plusMinusPicker = findViewById(R.id.plusMinusPicker);
         Button nextActivityButton = findViewById(R.id.next);
         Button goBackButton = findViewById(R.id.back);
 
-        radioGroup.check(radioID);
+        String[] itemsBlood = {"A", "B", "AB", "O"};
+        String[] plusMinus = {"+", "-", "+", "-"};
+
+        bloodPicker.setMinValue(0);
+        bloodPicker.setMaxValue(itemsBlood.length - 1);
+        bloodPicker.setDisplayedValues(itemsBlood);
+
+        plusMinusPicker.setMinValue(0);
+        plusMinusPicker.setMaxValue(plusMinus.length-1);
+        plusMinusPicker.setDisplayedValues(plusMinus);
+        //ir buscar ao localStorage as definições
+        bloodPicker.setValue(prefs.getInt("bloodType", 0));
+        plusMinusPicker.setValue(prefs.getInt("plusMinus", 0));
 
         nextActivityButton.setOnClickListener(v -> {
 
-            radioID = radioGroup.getCheckedRadioButtonId();
+            int bloodPickerIndex = bloodPicker.getValue();
+            int plusMinusIndex = plusMinusPicker.getValue() % 2;
 
             SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("radioID", radioID);
+            editor.putInt("bloodType", bloodPickerIndex);
+            editor.putInt("plusMinus", plusMinusIndex);
             editor.apply();
 
             Intent intent = new Intent(Reg05.this, Reg06.class);

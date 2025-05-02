@@ -1,6 +1,7 @@
 package com.shift;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,7 @@ public class PutData extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("CREATED PUDATA VIEW", "Thiago gay");
         EdgeToEdge.enable(this);
         setContentView(R.layout.put_data_on_card_view);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
