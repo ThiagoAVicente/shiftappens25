@@ -1,17 +1,16 @@
 package com.shift;
 
-import static android.text.Layout.JUSTIFICATION_MODE_INTER_WORD;
-
 import android.content.Intent;
-import android.graphics.Color;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
-import android.util.TypedValue;
-import android.view.Gravity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+import android.graphics.Color;
+import android.util.TypedValue;
+import android.view.Gravity;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +19,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Reg04 extends AppCompatActivity {
+
+    private static final String TAG = "Reg04";
+
+    private NfcAdapter nfcAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,16 @@ public class Reg04 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Initialize NFC Adapter
+        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (nfcAdapter == null) {
+            Log.e(TAG, "NFC is not supported on this device.");
+        } else if (!nfcAdapter.isEnabled()) {
+            Log.e(TAG, "NFC is disabled. Please enable it in settings.");
+        } else {
+            Log.d(TAG, "NFC is available and enabled.");
+        }
 
         LinearLayout mainLayout = findViewById(R.id.main);
         Button nextActivityButton = findViewById(R.id.next);
@@ -45,7 +58,7 @@ public class Reg04 extends AppCompatActivity {
 
             int nmrFilhos = allergiesContainer.getChildCount();
 
-            for(int i = 1; i < nmrFilhos ; i++){
+            for (int i = 1; i < nmrFilhos; i++) {
                 TextView viewText = (TextView) allergiesContainer.getChildAt(i);
                 String alergia = viewText.getText().toString();
             }
@@ -66,5 +79,6 @@ public class Reg04 extends AppCompatActivity {
 
             allergiesContainer.addView(newText);
         });
+
     }
 }

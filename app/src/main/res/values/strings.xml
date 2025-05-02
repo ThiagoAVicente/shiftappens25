@@ -3,4 +3,6 @@
     <string name="register">Register</string>
     <string name="save_to_card">Save to Card</string>
     <string name="options">Options</string>
+    <string name="aid_group_description">AIDS\'S group for NFC communication</string>
+    <string name="hce_service_description">NFC card simulation</string>
 </resources>
